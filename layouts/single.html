@@ -1,4 +1,7 @@
 {{ define "main" }}
     <h1 class="page-title">{{ .Title }}</h1>
+    {{ if .Param "noteid" }}
+    <p class="noteid">Note-ID: {{ .Param "noteid" }}
+    {{ end }}
     {{ .Content }}
 {{ end }}
