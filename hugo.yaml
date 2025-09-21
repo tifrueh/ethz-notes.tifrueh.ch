@@ -4,3 +4,16 @@ title: ETHZ-Notes
 disableKinds:
   - term
   - taxonomy
+
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - - $$
+              - $$
+          inline:
+            - - $
+              - $
+        enable: true
