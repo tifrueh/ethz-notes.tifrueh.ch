@@ -92,6 +92,10 @@ main {
     flex-grow: 1;
 }
 
+footer {
+    border-top: var(--border-thickness) var(--border-color) solid;
+}
+
 #outline {
     padding: 1rem 1rem 1rem 0.5rem;
     overflow-y: auto;
