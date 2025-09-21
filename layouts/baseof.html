@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+        <div id="top-grid">
+            <div id="menu">
+                {{ partial "menu.html" . }}
+            </div>
+            <div id="main">
+                <header>
+                    {{ partial "header.html" . }}
+                </header>
+                <main>
+                    {{ block "main" . }}
+                    {{ end }}
+                </main>
+                <footer>
+                    {{ partial "footer.html" . }}
+                </footer>
+            </div>
+            <div id="outline">
+                {{ partial "outline.html" . }}
+            </div>
+        </div>
+        {{ partial "scripts.html" . }}
+    </body>
+</html>

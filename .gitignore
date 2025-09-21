@@ -1,0 +1,4 @@
+content/*
+content/_index.md
+public
+.hugo_build.lock

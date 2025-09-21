@@ -1,0 +1,6 @@
+baseURL: https://ethz-notes.tifrueh.ch
+languageCode: en-GB
+title: ETHZ-Notes
+disableKinds:
+  - term
+  - taxonomy
