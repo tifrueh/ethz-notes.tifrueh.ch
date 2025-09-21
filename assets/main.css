@@ -9,6 +9,8 @@
     --background: #282c34;
     --background-code: #191E26;
     --scrollbar: #3d4148;
+    --border-thickness: 0.5px;
+    --border-color: #dcdfe466
 }
 
 html, body {
@@ -21,55 +23,123 @@ html, body {
     width: 100%;
 }
 
-a {
-  color: var(--cyan);
-  text-decoration: none;
-}
-
 #top-grid {
     display: grid;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    grid-template-rows: 100%;
+    grid-template-rows: min-content auto;
     grid-template-columns: min(35%, 40ch) calc(100% - min(35%, 40ch) - min(20%, 30ch)) min(20%, 30ch);
+}
+
+.top-block {
+    margin: 0;
+    padding: 1rem;
+}
+
+#title {
+    border-right: var(--border-thickness) var(--border-color) solid;
+    border-bottom: var(--border-thickness) var(--border-color) solid;
+}
+
+#header {
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: 2 / 4;
 }
 
 #menu {
     padding: 1rem 0.5rem 1rem 1rem;
-    border-right: 0.5px var(--foreground) solid;
-}
-
-#main-title {
-    margin: 0 0 1rem 0;
-    padding: 0;
+    border-right: var(--border-thickness) var(--border-color) solid;
+    overflow-y: auto;
+    scrollbar-color: var(--scrollbar) var(--background);
 }
 
 .menu-tree-level {
-    margin-left: 2ch;
+    border-left: var(--border-thickness) var(--border-color) solid;
+    padding-top: 1ch;
+    padding-left: 2ch;
+    margin-left: 4px;
+}
+
+.menu-tree-section, .menu-tree-page {
+    padding-bottom: 1ch;
 }
 
 .menu-tree-page {
     margin: 0;
 }
 
+.menu-tree-current {
+    color: var(--green);
+}
+
+.menu-tree-section>summary::marker {
+    content: "🞂 ";
+}
+
+.menu-tree-section[open]>summary::marker {
+    content: "🞃 ";
+}
+
 #main {
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: max-content auto max-content;
-}
-
-header {
-    border-bottom: 0.5px var(--foreground) solid;
-}
-
-main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 2rem;
     overflow-y: auto;
     scrollbar-color: var(--scrollbar) var(--background);
 }
 
+main {
+    flex-grow: 1;
+}
+
 #outline {
     padding: 1rem 1rem 1rem 0.5rem;
+    overflow-y: auto;
+    scrollbar-color: var(--scrollbar) var(--background);
+}
+
+#TableOfContents ul {
+    list-style-type: none;
+    padding-top: 1ch;
+    padding-left: 2ch;
+}
+
+#TableOfContents>ul {
+    padding-top: 0;
+    padding-left: 0;
+}
+
+#TableOfContents li {
+    padding-bottom: 1ch;
+}
+
+a {
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+a.invisible-link {
+    color: var(--foreground);
+}
+
+h1#main-title {
+    margin: 0;
+}
+
+.page-title {
+    margin-top: 0;
+}
+
+.page-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.page-list li {
+    padding-bottom: 1ch;
 }

@@ -1,6 +1,5 @@
 {{ $current := . }}
 
-<h1 id="main-title"><a class="invisible-link" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
 <div class="menu-tree">
     {{ partial "menu/walk.html" (dict "current" $current "pages" .Site.Sections) }}
 </div>
@@ -11,7 +10,7 @@
         {{ if .IsSection }}
             <details{{ if $current.IsDescendant . }} open="true" {{ end }} class="menu-tree-section">
                 <summary>
-                    <a class="menu-tree-section-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <a class="menu-tree-section-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </summary>
                 <div class="menu-tree-level">
                     {{ partial "menu/walk.html" (dict "current" $current "pages" .Pages) }}

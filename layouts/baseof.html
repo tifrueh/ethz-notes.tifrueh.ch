@@ -5,13 +5,16 @@
     </head>
     <body>
         <div id="top-grid">
-            <div id="menu">
+            <div class="top-block" id="title">
+                {{ partial "title.html" . }}
+            </div>
+            <div class="top-block" id="header">
+                {{ partial "header.html" . }}
+            </div>
+            <div class="top-block" id="menu">
                 {{ partial "menu.html" . }}
             </div>
-            <div id="main">
-                <header>
-                    {{ partial "header.html" . }}
-                </header>
+            <div class="top-block" id="main">
                 <main>
                     {{ block "main" . }}
                     {{ end }}
@@ -20,7 +23,7 @@
                     {{ partial "footer.html" . }}
                 </footer>
             </div>
-            <div id="outline">
+            <div class="top-block" id="outline">
                 {{ partial "outline.html" . }}
             </div>
         </div>
