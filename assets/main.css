@@ -88,6 +88,15 @@ html, body {
     scrollbar-color: var(--scrollbar) var(--background);
 }
 
+#wide-main {
+    grid-column: 2 / 4;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 2rem;
+    overflow-y: auto;
+    scrollbar-color: var(--scrollbar) var(--background);
+}
+
 main {
     flex-grow: 1;
 }

@@ -14,7 +14,7 @@
             <div class="top-block" id="menu">
                 {{ partial "menu.html" . }}
             </div>
-            <div class="top-block" id="main">
+            <div class="top-block" id="{{ if .Param "outline" }}main{{ else }}wide-main{{ end }}">
                 <main>
                     {{ block "main" . }}
                     {{ end }}
@@ -23,9 +23,11 @@
                     {{ partial "footer.html" . }}
                 </footer>
             </div>
+            {{ if .Param "outline" }}
             <div class="top-block" id="outline">
                 {{ partial "outline.html" . }}
             </div>
+            {{ end }}
         </div>
         {{ partial "scripts.html" . }}
     </body>
