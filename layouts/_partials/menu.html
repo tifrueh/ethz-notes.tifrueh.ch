@@ -10,7 +10,7 @@
         {{ if .IsSection }}
             <details{{ if $current.IsDescendant . }} open="true" {{ end }} class="menu-tree-section">
                 <summary>
-                    <a class="menu-tree-section-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <a class="menu-tree-section-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
                 </summary>
                 <div class="menu-tree-level">
                     {{ partial "menu/walk.html" (dict "current" $current "pages" .Pages) }}
@@ -18,7 +18,7 @@
             </details>
         {{ else if .IsHome }}
         {{ else }}
-            <p class="menu-tree-page"><a class="menu-tree-page-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+            <p class="menu-tree-page"><a class="menu-tree-page-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a></p>
         {{ end }}
     {{ end }}
 {{ end }}

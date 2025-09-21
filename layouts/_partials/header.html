@@ -1,6 +1,6 @@
 <nav class="breadcrumb">
     {{ range .Ancestors.Reverse }}
-        &#128898; <a class="breadcrumb-ancestor" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        &#128898; <a class="breadcrumb-ancestor" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
     {{ end }}
-        &#128898; <a class="breadcrumb-current" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        &#128898; <a class="breadcrumb-current" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
 </nav>
