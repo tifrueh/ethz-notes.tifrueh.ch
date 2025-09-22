@@ -136,11 +136,18 @@ a.invisible-link {
 }
 
 img {
-    width: 100%;
+    display: block;
+    width: min(100%, 120ch);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1#main-title {
     margin: 0;
+}
+
+h2 {
+    border-bottom: var(--border-thickness) var(--border-color) solid;
 }
 
 .page-title {
