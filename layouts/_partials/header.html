@@ -4,3 +4,12 @@
     {{ end }}
         &#128898; <a class="breadcrumb-current" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
 </nav>
+<div id="header-arrows">
+    {{ $pages := .CurrentSection.Pages.Reverse }}
+    {{ with $pages.Prev . }}
+    <a href="{{ .RelPermalink }}">&#x21B6;</a>
+    {{ end }}
+    {{ with $pages.Next . }}
+    <a href="{{ .RelPermalink }}">&#x21B7;</a>
+    {{ end }}
+</div>
