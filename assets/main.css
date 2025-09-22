@@ -166,3 +166,36 @@ h2 {
 .noteid {
     font-style: italic;
 }
+
+@media only screen and (max-width: 1110px) {
+    #outline {
+        display: none;
+    }
+
+    #main, #wide-main {
+        grid-column: 2 / 4;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    #top-grid {
+        grid-template-rows: min-content min-content auto
+    }
+
+    #outline, #menu {
+        display: none;
+    }
+
+    #main, #wide-main {
+        grid-column: 1 / 4;
+    }
+
+    #title, #header {
+        grid-column: 1 / 4;
+    }
+
+    #title {
+        padding-left: 2rem;
+    }
+}
