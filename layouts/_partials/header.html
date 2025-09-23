@@ -1,8 +1,8 @@
 <nav class="breadcrumb">
     {{ range .Ancestors.Reverse }}
-        &#128898; <a class="breadcrumb-ancestor" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
+        &#x25B8; <a class="breadcrumb-ancestor" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
     {{ end }}
-        &#128898; <a class="breadcrumb-current" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
+        &#x25B8; <a class="breadcrumb-current" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
 </nav>
 <div id="header-arrows">
     {{ $pages := .CurrentSection.Pages.Reverse }}

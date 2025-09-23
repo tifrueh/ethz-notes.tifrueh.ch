@@ -74,11 +74,11 @@ html, body {
 }
 
 .menu-tree-section>summary::marker {
-    content: "🞂 ";
+    content: "▸ ";
 }
 
 .menu-tree-section[open]>summary::marker {
-    content: "🞃 ";
+    content: "▾ ";
 }
 
 #main {
