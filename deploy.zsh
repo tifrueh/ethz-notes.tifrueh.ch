@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 ETHZ_NOTES_TIFRUEH_PUBLIC="${ETHZ_NOTES_TIFRUEH}/public/"
-ETHZ_NOTES_TIFRUEH_CONTENT="${ETHZ_NOTES_TIFRUEH}/content/"
 
 printt () {
     title="=== ${1} "
@@ -10,10 +9,11 @@ printt () {
 
 printt "BEGIN GIT PULL"
 
-cd "${ETHZ_NOTES_TIFRUEH_CONTENT}"
+cd "${ETHZ_NOTES_TIFRUEH}"
 
 for gd in $(find . -name '.git' -type d); do
-    GIT_CMD="git -C '${gd}/..' pull"
+    gitdir="$(realpath $gd/..)"
+    GIT_CMD="git -C '${gitdir}' pull"
     printf '%s\n' "$GIT_CMD"
     read 'CONT?Continue? [y/N] '
     [[ "$CONT" = 'y' || "$CONT" = 'Y' ]] || continue
