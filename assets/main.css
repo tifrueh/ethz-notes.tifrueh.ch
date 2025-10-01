@@ -182,6 +182,11 @@ th, td {
     font-style: italic;
 }
 
+div.highlight {
+    width: 100%;
+    overflow-x: auto;
+}
+
 @media only screen and (max-width: 1110px) {
     #outline {
         display: none;
