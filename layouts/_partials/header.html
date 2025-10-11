@@ -7,9 +7,10 @@
 <div id="header-arrows">
     {{ $pages := .CurrentSection.Pages.Reverse }}
     {{ with $pages.Prev . }}
-    <a href="{{ .RelPermalink }}">&#x21B6;</a>
+    <a href="{{ .RelPermalink }}">&#x21E0;</a>
+    &nbsp;
     {{ end }}
     {{ with $pages.Next . }}
-    <a href="{{ .RelPermalink }}">&#x21B7;</a>
+    <a href="{{ .RelPermalink }}">&#x21E2;</a>
     {{ end }}
 </div>
