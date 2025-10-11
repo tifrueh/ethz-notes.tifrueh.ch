@@ -137,6 +137,10 @@ a.invisible-link {
     color: var(--foreground);
 }
 
+code {
+    font-size: 0.9rem;
+}
+
 img {
     display: block;
     width: min(100%, 120ch);
