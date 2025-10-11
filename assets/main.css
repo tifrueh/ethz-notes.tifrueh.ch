@@ -221,6 +221,10 @@ div.chroma {
 
 @media only screen and (max-width: 768px) {
 
+    code {
+        font-size: 0.8rem;
+    }
+
     #top-grid {
         grid-template-rows: min-content min-content auto
     }
