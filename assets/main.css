@@ -1,16 +1,17 @@
 :root {
-    --red: #e06c75;
-    --green: #98c379;
-    --yellow: #e5c07b;
-    --blue: #61afef;
-    --magenta: #c678dd;
-    --cyan: #56b6c2;
-    --foreground: #dcdfe4;
-    --background: #282c34;
-    --background-code: #191E26;
-    --scrollbar: #3d4148;
+    color-scheme: light dark;
+    --red:              light-dark(#e45649, #e06c75);
+    --green:            light-dark(#50a14f, #98c379);
+    --yellow:           light-dark(#c18401, #e5c07b);
+    --blue:             light-dark(#0184bc, #61afef);
+    --magenta:          light-dark(#a626a4, #c678dd);
+    --cyan:             light-dark(#0997b3, #56b6c2);
+    --foreground:       light-dark(#383a42, #dcdfe4);
+    --background:       light-dark(#fafafa, #282c34);
+    --background-code:  light-dark(#191e26, #191e26);
+    --scrollbar:        light-dark(#383a42, #3d4148);
+    --border-color:     light-dark(#383a42, #dcdfe466);
     --border-thickness: 0.5px;
-    --border-color: #dcdfe466
 }
 
 html, body {
@@ -186,7 +187,7 @@ th, td {
     font-style: italic;
 }
 
-div.highlight {
+div.chroma {
     width: 100%;
     overflow-x: auto;
 }
