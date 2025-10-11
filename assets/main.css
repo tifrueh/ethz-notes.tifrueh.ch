@@ -224,3 +224,15 @@ div.chroma {
         padding-left: 2rem;
     }
 }
+
+@media print {
+
+    #top-grid {
+        display: block;
+    }
+
+    #outline, #menu, #title, #header {
+        display: none;
+    }
+
+}
