@@ -141,6 +141,10 @@ footer {
     margin-bottom: 1ch;
 }
 
+mjx-container {
+    overflow-x: auto;
+}
+
 a {
     color: var(--cyan);
     text-decoration: none;
