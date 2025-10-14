@@ -1,35 +1,54 @@
 #!/bin/zsh
 
-ETHZ_NOTES_TIFRUEH_PUBLIC="${ETHZ_NOTES_TIFRUEH}/public/"
+# External Variables:
+#
+# ETHZ_NOTES_TIFRUEH_HUGO       Path to the hugo root.
+# ETHZ_NOTES_TIFRUEH_WWW        Path to the webserver root.
+# ETHZ_NOTES_TIFRUEH_USR        The user with which to rsync.
+# ETHZ_NOTES_TIFRUEH_HEADLESS   Set to some value to run non-interactively.
+
+hugo="$ETHZ_NOTES_TIFRUEH_HUGO"
+hugo_public="${ETHZ_NOTES_TIFRUEH_HUGO}/public/"
+www="$ETHZ_NOTES_TIFRUEH_WWW"
+headless="$ETHZ_NOTES_TIFRUEH_HEADLESS"
+
+if [ -n "$ETHZ_NOTES_TIFRUEH_USR" ]; then
+    rsync_prefix="sudo -u ${ETHZ_NOTES_TIFRUEH_USR} "
+else
+    rsync_prefix=""
+fi
 
 printt () {
     title="=== ${1} "
     echo "${(r:80::=:)title}"
 }
 
+confirm_eval () {
+    if [[ -z "$headless" ]]; then
+        printf '%s\n' "$1"
+        read 'CONT?Continue? [y/N] '
+        [[ "$CONT" = 'y' || "$CONT" = 'Y' ]] || return 1
+    fi
+    eval "$1"
+}
+
 printt "BEGIN GIT PULL"
 
-cd "${ETHZ_NOTES_TIFRUEH}"
+cd "$hugo"
 
 for gd in $(find . -name '.git' -type d); do
     gitdir="$(realpath $gd/..)"
-    GIT_CMD="git -C '${gitdir}' pull"
-    printf '%s\n' "$GIT_CMD"
-    read 'CONT?Continue? [y/N] '
-    [[ "$CONT" = 'y' || "$CONT" = 'Y' ]] || continue
-    eval "$GIT_CMD"
+    git_cmd="git -C '${gitdir}' pull"
+    confirm_eval "$git_cmd"
 done
 
 printt "END GIT PULL"
 
 printt "BEGIN HUGO"
-hugo --source "${ETHZ_NOTES_TIFRUEH}" --destination "${ETHZ_NOTES_TIFRUEH_PUBLIC}"
+hugo --source "${hugo}" --destination "${hugo_public}"
 printt "END HUGO"
 
 printt "BEGIN RSYNC"
-RSYNC_CMD="sudo rsync --del -vrlpt '${ETHZ_NOTES_TIFRUEH_PUBLIC}' '${ETHZ_NOTES_TIFRUEH_SRV}'"
-printf '%s\n' "$RSYNC_CMD"
-read 'CONT?Continue? [y/N] '
-[[ "$CONT" = 'y' || "$CONT" = 'Y' ]] || exit 0
-eval "$RSYNC_CMD"
+rsync_cmd="${rsync_prefix}rsync --del -vrlpt '${hugo_public}' '${www}'"
+confirm_eval "$rsync_cmd"
 printt "END RSYNC"
