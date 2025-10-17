@@ -1,4 +1,4 @@
 content/*
-content/_index.md
+!content/_index.md
 public
 .hugo_build.lock
