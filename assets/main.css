@@ -239,14 +239,16 @@ div.chroma {
 
     #main, #wide-main {
         grid-column: 1 / 4;
+        padding: 1rem;
     }
 
     #title, #header {
         grid-column: 1 / 4;
+        padding: 1rem;
     }
 
     #title {
-        padding-left: 2rem;
+        padding: 1rem;
     }
 }
 
