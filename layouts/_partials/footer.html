@@ -1,3 +1,5 @@
 {{ block "footer" . }}
-<p>&copy; 2024&ndash;{{ now.Year }}. For more information on references, check the index pages for each course.</p>
+{{ with .Site.Param "copyNotice" }}
+<p>Copyright &copy; {{ .BaseYear }}&ndash;{{ now.Year }} {{ .Author }}. {{ .NoticeText }}</p>
+{{ end }}
 {{ end }}

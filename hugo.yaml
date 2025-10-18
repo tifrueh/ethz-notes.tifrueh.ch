@@ -20,3 +20,9 @@ markup:
             - - $
               - $
         enable: true
+
+params:
+  copyNotice:
+    baseYear: 2024
+    author: Timo Früh
+    noticeText: For more information on references, check the index pages for each course.
