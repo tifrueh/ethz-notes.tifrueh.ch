@@ -20,3 +20,5 @@ as well.
 
 But, without further ado, I'll leave you to it. I hope you'll find what you're
 looking for. Enjoy your stay!
+
+## Courses
