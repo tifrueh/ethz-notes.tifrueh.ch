@@ -158,6 +158,13 @@ code {
     font-size: 0.9rem;
 }
 
+blockquote {
+    font-style: italic;
+    margin-left: 0;
+    padding-left: 0.7rem;
+    border-left: 2px var(--foreground) solid;
+}
+
 img {
     display: block;
     width: min(100%, 120ch);
