@@ -9,7 +9,7 @@
     --foreground:       light-dark(#383a42, #dcdfe4);
     --background:       light-dark(#fafafa, #282c34);
     --background-code:  light-dark(#e2e2e2, #3d4148);
-    --scrollbar:        light-dark(#383a42, #3d4148);
+    --scrollbar:        light-dark(#e2e2e2, #3d4148);
     --border-color:     light-dark(#383a42, #dcdfe466);
     --border-thickness: 0.5px;
 }
