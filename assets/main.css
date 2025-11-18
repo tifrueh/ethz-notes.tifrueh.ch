@@ -8,7 +8,7 @@
     --cyan:             light-dark(#0997b3, #56b6c2);
     --foreground:       light-dark(#383a42, #dcdfe4);
     --background:       light-dark(#fafafa, #282c34);
-    --background-code:  light-dark(#191e26, #191e26);
+    --background-code:  light-dark(#e2e2e2, #3d4148);
     --scrollbar:        light-dark(#383a42, #3d4148);
     --border-color:     light-dark(#383a42, #dcdfe466);
     --border-thickness: 0.5px;
@@ -155,7 +155,17 @@ a.invisible-link {
 }
 
 code {
-    font-size: 0.9rem;
+    padding: .2em .4em;
+    font-size: 85%;
+    background-color: var(--background-code);
+    border-radius: 6px;
+}
+
+pre code {
+    padding: 0;
+    font-size: 100%;
+    border-radius: 0;
+    background-color: var(--background);
 }
 
 blockquote {
@@ -178,6 +188,7 @@ h1#main-title {
 
 h2 {
     border-bottom: var(--border-thickness) var(--border-color) solid;
+    padding-bottom: .3em;
 }
 
 h1, h2, h3 {
