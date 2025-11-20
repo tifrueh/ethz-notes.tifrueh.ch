@@ -12,6 +12,7 @@
     --scrollbar:        light-dark(#e2e2e2, #3d4148);
     --border-color:     light-dark(#383a42, #dcdfe466);
     --border-thickness: 0.5px;
+    --width:            120ch;
 }
 
 html, body {
@@ -101,6 +102,8 @@ div.header-arrows {
     padding: 1rem 1rem 1rem 2rem;
     overflow-y: auto;
     scrollbar-color: var(--scrollbar) var(--background);
+    max-width: var(--width);
+    justify-self: center;
 }
 
 #wide-main {
@@ -110,6 +113,8 @@ div.header-arrows {
     padding: 1rem 1rem 1rem 2rem;
     overflow-y: auto;
     scrollbar-color: var(--scrollbar) var(--background);
+    max-width: var(--width);
+    justify-self: center;
 }
 
 main {
