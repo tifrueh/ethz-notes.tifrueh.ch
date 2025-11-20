@@ -1,0 +1,10 @@
+{{ $path := .Destination }}
+{{ with .Page.Resources.Get $path }}
+<img src="{{ .RelPermalink }}"
+{{ else }}
+<img src="{{ .Destination | safeURL }}"
+{{ end }}
+  {{- with .PlainText }} alt="{{ . }}"{{ end -}}
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+>
+{{- /* chomp trailing newline */ -}}
