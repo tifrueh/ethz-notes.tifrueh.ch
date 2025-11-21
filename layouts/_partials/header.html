@@ -1,16 +1,1 @@
-<nav class="breadcrumb">
-    {{ range .Ancestors.Reverse }}
-        &#x25B8; <a class="breadcrumb-ancestor" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
-    {{ end }}
-        &#x25B8; <a class="breadcrumb-current" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
-</nav>
-<div id="header-arrows">
-    {{ $pages := .CurrentSection.Pages.Reverse }}
-    {{ with $pages.Prev . }}
-    <a href="{{ .RelPermalink }}">&#x21E0;</a>
-    &nbsp;
-    {{ end }}
-    {{ with $pages.Next . }}
-    <a href="{{ .RelPermalink }}">&#x21E2;</a>
-    {{ end }}
-</div>
+<h1 id="main-title"><a class="invisible-link" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>

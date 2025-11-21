@@ -5,23 +5,25 @@
     </head>
     <body>
         <div id="top-grid">
-            <div class="top-block" id="title">
-                {{ partial "title.html" . }}
-            </div>
             <div class="top-block" id="header">
                 {{ partial "header.html" . }}
             </div>
             <div class="top-block" id="menu">
                 {{ partial "menu.html" . }}
             </div>
-            <div class="top-block" id="{{ if .Param "outline" }}main{{ else }}wide-main{{ end }}">
-                <main>
-                    {{ block "main" . }}
-                    {{ end }}
-                </main>
-                <footer>
-                    {{ partial "footer.html" . }}
-                </footer>
+            <div class="top-block{{ if .Param "outline" }} narrow-main{{ end }}" id="main">
+                <div id="content">
+                    <div id="breadcrumb">
+                        {{ partial "breadcrumb.html" . }}
+                    </div>
+                    <main>
+                        {{ block "main" . }}
+                        {{ end }}
+                    </main>
+                    <footer>
+                        {{ partial "footer.html" . }}
+                    </footer>
+                </div>
             </div>
             {{ if .Param "outline" }}
             <div class="top-block" id="outline">
