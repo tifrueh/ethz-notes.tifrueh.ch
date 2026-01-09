@@ -15,8 +15,8 @@ original content _was_ produced by the lecturers at ETH, these notes are a
 reformulation of mine, and are therefore prone to contain errors and
 inaccuracies. If you find any of those, you're very welcome to send me an email
 or open an issue or a merge request on the (ETH-internal) GitLab repositories on
-which the cards are hosted. You'll find the links to those on the course pages
-as well.
+which the notes are hosted as well. You'll find the links to those on the course
+pages.
 
 But, without further ado, I'll leave you to it. I hope you'll find what you're
 looking for. Enjoy your stay!
