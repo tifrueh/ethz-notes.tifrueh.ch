@@ -109,6 +109,7 @@ div.header-arrows {
     max-height: 100%;
     overflow-y: auto;
     scrollbar-color: var(--scrollbar) var(--background);
+    line-height: 1.5;
 }
 
 #content {
