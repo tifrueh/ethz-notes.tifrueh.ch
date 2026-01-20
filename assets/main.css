@@ -173,6 +173,7 @@ code {
     font-size: 85%;
     background-color: var(--background-code);
     border-radius: 6px;
+    white-space: pre;
 }
 
 pre code {
