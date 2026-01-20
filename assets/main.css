@@ -124,6 +124,11 @@ main {
     flex-grow: 1;
 }
 
+main  p {
+    text-align: justify;
+    hyphens: auto;
+}
+
 footer {
     border-top: var(--border-thickness) var(--border-color) solid;
 }
