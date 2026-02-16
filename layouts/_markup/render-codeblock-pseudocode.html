@@ -1,0 +1,4 @@
+{{ $result := transform.Highlight .Inner "text" }}
+{{ $esc := transform.HTMLEscape $result }}
+{{ $md := transform.Markdownify $esc  }}
+{{ transform.HTMLUnescape $md | transform.HTMLUnescape | safeHTML }}
