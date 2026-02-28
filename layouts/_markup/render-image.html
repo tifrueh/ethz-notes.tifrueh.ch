@@ -1,3 +1,6 @@
+{{- if .IsBlock }}
+<figure>
+{{- end }}
 {{ $path := .Destination }}
 {{ with .Page.Resources.Get $path }}
 <img src="{{ .RelPermalink }}"
@@ -7,4 +10,9 @@
   {{- with .PlainText }} alt="{{ . }}"{{ end -}}
   {{- with .Title }} title="{{ . }}"{{ end -}}
 >
-{{- /* chomp trailing newline */ -}}
+{{- if .Title }}
+<figcaption>{{ .Title }}</figcaption>
+{{- end -}}
+{{- if .IsBlock }}
+</figure>
+{{- end -}}

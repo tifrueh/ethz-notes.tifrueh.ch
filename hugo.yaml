@@ -10,6 +10,10 @@ markup:
     noClasses: false
     linenos: true
   goldmark:
+    parser:
+      wrapStandAloneImageWithinParagraph: false
+    attribute:
+      block: true
     extensions:
       passthrough:
         delimiters:
