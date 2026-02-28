@@ -224,6 +224,10 @@ th, td {
     padding: 0.5rem 1rem;
 }
 
+dt {
+    font-weight: bold;
+}
+
 .page-title {
     margin-top: 0;
 }
