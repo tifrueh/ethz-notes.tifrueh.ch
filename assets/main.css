@@ -159,6 +159,10 @@ mjx-container {
     overflow-y: clip;
 }
 
+pre.mermaid {
+    text-align: center
+}
+
 a {
     color: var(--cyan);
     text-decoration: none;
