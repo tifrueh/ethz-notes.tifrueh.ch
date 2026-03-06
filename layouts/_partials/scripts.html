@@ -17,7 +17,23 @@
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
     mermaid.initialize({
         startOnLoad: true,
-        theme: 'dark'
+        theme: 'base',
+        themeVariables: {
+            darkMode: true,
+            background: '#282c34',
+            noteBkgColor: '#282c34',
+            noteTextColor: '#dcdfe4',
+            primaryColor: '#282c34',
+            primaryBorderColor: '#dcdfe4',
+            primaryTextColor: '#dcdfe4',
+            secondaryColor: '#61afef',
+            secondaryTextColor: '#282c34',
+            tertiaryColor: '#dcdfe4',
+            tertiaryTextColor: '#282c34',
+            lineColor: '#dcdfe4',
+            edgeLabelBackground: '#3d4148',
+            fontFamily: '\'Source Serif 4,serif\''
+        }
     });
 </script>
 {{ end }}
