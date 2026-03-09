@@ -15,25 +15,13 @@
 {{ if .Store.Get "hasMermaid" }}
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'base',
-        themeVariables: {
-            darkMode: true,
-            background: '#282c34',
-            noteBkgColor: '#282c34',
-            noteTextColor: '#dcdfe4',
-            primaryColor: '#282c34',
-            primaryBorderColor: '#dcdfe4',
-            primaryTextColor: '#dcdfe4',
-            secondaryColor: '#61afef',
-            secondaryTextColor: '#282c34',
-            tertiaryColor: '#3d4148',
-            tertiaryTextColor: '#dcdfe4',
-            lineColor: '#dcdfe4',
-            edgeLabelBackground: '#3d4148',
-            fontFamily: '\'Source Serif 4,serif\''
-        }
-    });
+    const darkModeMql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    let config;
+    if (darkModeMql && darkModeMql.matches) {
+        config = { startOnLoad: true, theme: 'dark' , themeVariables: { darkMode: true }};
+    } else {
+        config = { startOnLoad: true, theme: 'neutral' };
+    }
+    mermaid.initialize(config);
 </script>
 {{ end }}
