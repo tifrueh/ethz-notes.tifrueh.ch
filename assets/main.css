@@ -164,7 +164,7 @@ pre.mermaid {
 }
 
 a {
-    color: var(--cyan);
+    color: var(--cyan) !important;
     text-decoration: none;
 }
 
