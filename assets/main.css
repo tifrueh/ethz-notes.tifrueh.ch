@@ -164,12 +164,16 @@ pre.mermaid {
 }
 
 a {
-    color: var(--cyan) !important;
+    color: var(--cyan);
     text-decoration: none;
 }
 
 a.invisible-link {
     color: var(--foreground);
+}
+
+mjx-container a[data-mjx-href] {
+    color: var(--cyan) !important;
 }
 
 code {
