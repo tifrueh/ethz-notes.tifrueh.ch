@@ -82,6 +82,7 @@ div.header-arrows {
 
 .menu-tree-section, .menu-tree-page {
     margin: 1ch 0;
+    text-indent: 4ch hanging;
 }
 
 .menu-tree-current {
@@ -90,6 +91,11 @@ div.header-arrows {
 
 .menu-tree-section>summary::marker {
     content: "▸ ";
+}
+
+.menu-tree-page::before {
+    content: "▸ ";
+    color: transparent;
 }
 
 .menu-tree-section[open]>summary::marker {
