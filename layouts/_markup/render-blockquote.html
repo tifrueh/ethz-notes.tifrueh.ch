@@ -1,6 +1,10 @@
+{{- $iconedAlerts := slice "note" "tip" "important" "warning" "caution" -}}
 {{- if eq .Type "alert" -}}
 <blockquote class="alert alert-{{ .AlertType }}">
     <p class="alert-heading">
+    {{- if collections.In $iconedAlerts .AlertType -}}
+    <svg class="alert-icon"><use xlink:href="#alert-icon-{{ .AlertType }}"></use></svg>
+    {{- end -}}
     {{- strings.Title .AlertType -}}
     </p>
     {{ .Text }}

@@ -210,6 +210,9 @@ blockquote.alert {
 
 blockquote.alert p.alert-heading {
     font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 blockquote.alert-note {
@@ -250,6 +253,13 @@ blockquote.alert-caution {
 
 blockquote.alert-caution p.alert-heading {
     color: var(--red);
+}
+
+svg.alert-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+    margin-right: 0.5rem;
 }
 
 img, figure {
