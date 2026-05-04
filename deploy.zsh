@@ -58,6 +58,7 @@ done
 printt "END GIT PULL"
 
 printt "BEGIN HUGO"
+confirm_eval "rm -rf '${hugo_public}'"
 hugo --environment "production" --minify --destination "${hugo_public}"
 printt "END HUGO"
 
