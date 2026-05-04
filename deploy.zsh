@@ -2,19 +2,20 @@
 
 # External Variables:
 #
-# ETHZ_NOTES_TIFRUEH_HUGO       Path to the hugo root.
-# ETHZ_NOTES_TIFRUEH_WWW        Path to the webserver root.
-# ETHZ_NOTES_TIFRUEH_USR        The user with which to rsync.
-# ETHZ_NOTES_TIFRUEH_HEADLESS   Set to some value to run non-interactively.
+# WWW_ETHZ_NOTES_TIFRUEH_USER   Remote user to use.
+# WWW_ETHZ_NOTES_TIFRUEH_HOST   Remote host to use.
+# WWW_ETHZ_NOTES_TIFRUEH_PATH   Remote path to use.
 
-hugo="$ETHZ_NOTES_TIFRUEH_HUGO"
-hugo_public="${ETHZ_NOTES_TIFRUEH_HUGO}/public/"
-hugo_content="${ETHZ_NOTES_TIFRUEH_HUGO}/content/"
-hugo_static="${ETHZ_NOTES_TIFRUEH_HUGO}/static/"
+# Run in script directory.
+cd "${0:A:h}"
+
+# Setup helper variables.
+ruser="${WWW_ETHZ_NOTES_TIFRUEH_USER:-user}"
+rhost="${WWW_ETHZ_NOTES_TIFRUEH_HOST:-host}"
+rpath="${WWW_ETHZ_NOTES_TIFRUEH_PATH:-path}"
+hugo_static="./static/"
+hugo_public="./public/"
 hugo_info_txt="${hugo_static}/info.txt"
-www="$ETHZ_NOTES_TIFRUEH_WWW"
-headless="$ETHZ_NOTES_TIFRUEH_HEADLESS"
-
 info_template="info.txt
 ========
 
@@ -27,30 +28,23 @@ Version Information
 -------------------
 "
 
-if [ -n "$ETHZ_NOTES_TIFRUEH_USR" ]; then
-    rsync_prefix="sudo -u ${ETHZ_NOTES_TIFRUEH_USR} "
-else
-    rsync_prefix=""
-fi
-
+# Define helper functions.
 printt () {
     title="=== ${1} "
     echo "${(r:80::=:)title}"
 }
 
 confirm_eval () {
-    if [[ -z "$headless" ]]; then
-        printf '%s\n' "$1"
-        read 'CONT?Continue? [y/N] '
-        [[ "$CONT" = 'y' || "$CONT" = 'Y' ]] || return 1
-    fi
+    printf '%s\n' "$1"
+    read 'CONT?Continue? [y/N] '
+    [[ "$CONT" = 'y' || "$CONT" = 'Y' ]] || return 1
     eval "$1"
 }
 
-echo '*' > "$hugo_static/.gitignore"
+# Setup info.txt.
+mkdir -p "$hugo_static"
+echo '*' > "${hugo_static}/.gitignore"
 printf "$info_template" "$(hugo version)" "$(date -Iseconds)" > "$hugo_info_txt"
-
-cd "$hugo"
 
 printt "BEGIN GIT PULL"
 
@@ -64,10 +58,10 @@ done
 printt "END GIT PULL"
 
 printt "BEGIN HUGO"
-hugo --source "${hugo}" --destination "${hugo_public}"
+hugo --environment "production" --minify --destination "${hugo_public}"
 printt "END HUGO"
 
 printt "BEGIN RSYNC"
-rsync_cmd="${rsync_prefix}rsync --del -vrlpt '${hugo_public}' '${www}'"
+rsync_cmd="rsync --del -vrlpt '${hugo_public}' '${ruser}@${rhost}:${rpath}'"
 confirm_eval "$rsync_cmd"
 printt "END RSYNC"
