@@ -7,3 +7,8 @@ markup:
       wrapStandAloneImageWithinParagraph: false
     attribute:
       block: true
+
+module:
+  hugoVersion:
+    extended: false
+    min: '0.158.0'
