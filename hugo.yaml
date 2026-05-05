@@ -1,10 +1,3 @@
-baseURL: https://ethz-notes.tifrueh.ch
-languageCode: en-GB
-title: ETHZ-Notes
-disableKinds:
-  - term
-  - taxonomy
-
 markup:
   highlight:
     noClasses: false
@@ -14,19 +7,3 @@ markup:
       wrapStandAloneImageWithinParagraph: false
     attribute:
       block: true
-    extensions:
-      passthrough:
-        delimiters:
-          block:
-            - - $$
-              - $$
-          inline:
-            - - $
-              - $
-        enable: true
-
-params:
-  copyNotice:
-    baseYear: 2024
-    author: Timo Früh
-    noticeText: For more information on references, check the index pages for each course.
