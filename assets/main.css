@@ -321,6 +321,11 @@ dt {
     font-style: italic;
 }
 
+#content-commit-hash {
+    font-style: italic;
+    opacity: 0.71;
+}
+
 div.chroma {
     width: 100%;
     overflow-x: auto;
