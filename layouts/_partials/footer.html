@@ -1,6 +1,4 @@
 {{ block "footer" . }}
-{{ with .Site.Param "copyNotice" }}
 {{- with .GitInfo }}<p id="content-commit-hash">Commit: {{ .Hash }}</p>{{ end }}
-<p>Copyright &copy; {{ .BaseYear }}&ndash;{{ now.Year }} {{ .Author }}. {{ .NoticeText }}</p>
-{{ end }}
+{{- with .Site.Param "copyNotice" }}<p>Copyright &copy; {{ .BaseYear }}&ndash;{{ now.Year }} {{ .Author }}. {{ .NoticeText }}</p>{{ end }}
 {{ end }}
