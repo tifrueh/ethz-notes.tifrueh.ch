@@ -169,6 +169,11 @@ pre.mermaid {
     text-align: center;
 }
 
+div.goat {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 80%;
+}
+
 a {
     color: var(--cyan);
     text-decoration: none;
