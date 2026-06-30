@@ -192,9 +192,15 @@ code {
 
 pre code {
     padding: 0;
+    margin: 0;
+    display: block;
     font-size: 100%;
     border-radius: 0;
     background-color: var(--background);
+}
+
+pre.manual {
+    margin-left: 0.7rem;
 }
 
 blockquote {

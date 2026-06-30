@@ -1,4 +1,7 @@
-{{ $result := transform.Highlight .Inner "text" }}
-{{ $esc := transform.HTMLEscape $result }}
-{{ $md := transform.Markdownify $esc  }}
-{{ transform.HTMLUnescape $md | transform.HTMLUnescape | safeHTML }}
+{{- $opts := merge .Options (dict "type" "text" "lineNos" "table") }}
+{{- $result := transform.HighlightCodeBlock . $opts }}
+<pre tabindex="0" class="manual mathjax_process">
+    <code class="pseudocode mathjax_process" data-lang="text">
+        {{- $result.Inner | transform.HTMLEscape | markdownify | transform.HTMLUnescape | transform.HTMLUnescape | safeHTML -}}
+    </code>
+</pre>
