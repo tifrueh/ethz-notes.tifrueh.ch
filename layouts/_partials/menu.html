@@ -1,23 +1,21 @@
 {{ $current := . }}
 
-<div class="menu-tree">
+<nav class="menu-tree">
     {{ partial "menu/walk.html" (dict "current" $current "page" .FirstSection) }}
-</div>
+</nav>
 
 {{ define "_partials/menu/walk.html" }}
     {{ $current := .current }}
     {{ with .page }}
     {{ if .IsSection }}
-        <details{{ if or ($current.IsDescendant .) ($current.Eq .) }} open="true" {{ end }} class="menu-tree-section">
-            <summary>
-                <a class="menu-tree-section-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a>
-            </summary>
+        <p class="menu-tree-section"><a class="menu-tree-section-link {{ if .Eq $current }}menu-tree-current{{ end }}" href="{{ .RelPermalink }}">{{ or .Params.abbr .Title }}</a></p>
+        {{ if or ($current.IsDescendant .) ($current.Eq .) }}
             <div class="menu-tree-level">
                 {{ range .Pages }}
                     {{ partial "menu/walk.html" (dict "current" $current "page" .) }}
                 {{ end }}
             </div>
-        </details>
+        {{ end }}
     {{ else if .IsHome }}
         {{ range .Pages }}
             {{ partial "menu/walk.html" (dict "current" $current "page" .) }}

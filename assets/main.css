@@ -89,19 +89,6 @@ div.header-arrows {
     color: var(--green);
 }
 
-.menu-tree-section>summary::marker {
-    content: "▸ ";
-}
-
-.menu-tree-page::before {
-    content: "▸ ";
-    color: transparent;
-}
-
-.menu-tree-section[open]>summary::marker {
-    content: "▾ ";
-}
-
 .narrow-main#main {
     grid-column: 2 / 3;
 }
