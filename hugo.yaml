@@ -7,6 +7,16 @@ markup:
       wrapStandAloneImageWithinParagraph: false
     attribute:
       block: true
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - - '$$'
+              - '$$'
+          inline:
+            - - '$'
+              - '$'
+        enable: true
 
 module:
   hugoVersion:
