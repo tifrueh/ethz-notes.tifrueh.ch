@@ -1,8 +1,8 @@
 {{- if (eq .Type "block") }}
 $$
-{{ .Inner }}
+{{- .Inner -}}
 $$
-{{- else }}
-${{ .Inner }}$
-{{- end }}
-{{ .Page.Store.Set "hasMath" true }}
+{{- else -}}
+${{- .Inner -}}$
+{{- end -}}
+{{- .Page.Store.Set "hasMath" true -}}
