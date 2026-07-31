@@ -5,7 +5,11 @@
 {{ with .Page.Resources.Get $path }}
 <img src="{{ .RelPermalink }}"
 {{ else }}
+{{ with resources.Get $path }}
+<img src="{{ .RelPermalink }}"
+{{ else }}
 <img src="{{ .Destination | safeURL }}"
+{{ end }}
 {{ end }}
   {{- with .PlainText }} alt="{{ . }}"{{ end -}}
   {{- with .Title }} title="{{ . }}"{{ end -}}
