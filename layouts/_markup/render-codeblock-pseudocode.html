@@ -5,3 +5,4 @@
         {{- $result.Inner | transform.HTMLEscape | markdownify | transform.HTMLUnescape | transform.HTMLUnescape | safeHTML -}}
     </code>
 </pre>
+{{- .Page.Store.Set "hasMath" true -}}
